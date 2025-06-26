@@ -13,6 +13,11 @@ for i in filepaths:
     pdf.add_page()
     pdf.set_font(family='Times', size=16, style='BI')
     filename = Path(i).stem
-    invoice_number = filename.split('-')
-    pdf.cell(w=50, h=8, txt=f'Inovice Number: {invoice_number[0]}', ln=1, align='L')
+    invoice_num_date = filename.split('-')
+
+    pdf.cell(w=50, h=8, txt=f'Inovice Number: {invoice_num_date[0]}', ln=1, align='L')
+    pdf.cell(w=50, h=8, txt=f'Date: {invoice_num_date[1]}', ln=1, align='L')
+
+    
+
     pdf.output(f'PDFs/{filename}.pdf')
